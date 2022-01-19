@@ -1,0 +1,167 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "~swiper/swiper-bundle";
+ion-content {
+    // --background: #fff url("assets/encuestas_bg.png") no-repeat center center / cover;
+    // --background: #fff url("assets/fondo.jpg") no-repeat center center / cover;
+}
+
+.labels {
+    text-align: center;
+    --ion-header-size: 1.0rem;
+    font-size: 0.2rem;
+    --ion-color-primary: gray;
+    // font-family: "underline","federant";
+}
+
+.labels_own {
+    text-align: center;
+    --ion-header-size: 1.0rem;
+    font-size: 0.2rem;
+    --ion-color-primary: black;
+    // font-family: "cursive", "Courier";
+}
+
+.back-button {
+    color: black;
+    --border-radius: 50%;
+    --background: #00CE00;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    color: red;
+    font-family: "cursive", "Lucida Bright";
+}
+
+.popover-class {
+    text-align: justify;
+}
+
+.sc-ion-popover-md-h {
+    --width: 95%;
+    --height: 70%;
+    --max-height: 150%;
+    --box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    --backdrop-opacity: var(--ion-backdrop-opacity, 0.32);
+}
+
+.toastPayment {
+    --height: 30px;
+}
+
+.btn-img-png {
+    background-color: transparent;
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.title-crud {
+    text-align: center;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+.fab-button {
+    margin-bottom: 30px;
+    margin-right: 10px;
+    zoom: 1.5;
+}
+
+.submit-button {
+    position: fixed;
+    bottom: 10px;
+    right: 20%;
+    left: 20%;
+    zoom: 1.5;
+    --background: #00CE00;
+    color: black;
+}
+
+.terms-conditions {
+    font-size: 18px;
+    text-decoration: underline blue;
+    padding-left: 20px;
+}
+
+.input {
+    font-size: 18px;
+}
+
+.button-green {
+    --background: #00CE00;
+    color: black;
+}
+
+.radio-green {
+    --color-checked: #00CE00;
+    color: black;
+}
+
+.check-green {
+    --checkmark-color: #00CE00;
+    --background-checked: white;
+    --border-color: black;
+    --border-color-checked: #00CE00;
+}
+
+.select-green {
+    /* Applies to the value and placeholder color */
+    color: #545ca7;
+    /* Set a different placeholder color */
+    --placeholder-color: #971e49;
+    /* Set full opacity on the placeholder */
+    --placeholder-opacity: 1;
+}
+
+ion-select::part(icon) {
+    color: black !important;
+    // color: #00CE00 !important;
+    zoom: 2;
+}
+
+.ion-select-custom {}
+
+.swiper-container {
+    width: 100%;
+    // height: 100%;
+}
+
+// .swiper-slide {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }

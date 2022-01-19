@@ -1,0 +1,11 @@
+div.accordion-container {
+  overflow:hidden;
+  overflow-y: scroll;
+  transition:max-height 0.5s ease-in-out;
+  height:auto;
+  // background: rgb(31, 43, 55);
+}
+
+div.accordion-container.collapsed {
+  max-height: 0 !important;
+}

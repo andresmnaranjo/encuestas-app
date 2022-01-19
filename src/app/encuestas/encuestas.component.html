@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{ folder }}</ion-title>
+        <ion-buttons slot="end" *ngIf="encuestaSelected">
+            <ion-button (click)="cerrarEncuesta()">
+                <ion-icon style="zoom:1.8;" name="close-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="!encuestaSelected">
+        <ion-text color="dark">
+            <h5>A continuación se encuentran las encuestas que tienes disponibles para diligenciar.</h5>
+        </ion-text>
+
+        <br><br>
+
+        <ion-item lines="full" style="--ion-background-color: #dedede; margin-top: -10px; margin-bottom: -10px;">
+            <ion-label>Seleccionar encuesta</ion-label>
+            <ion-select ok-text="Aceptar" cancel-text="Cancelar" [(ngModel)]="encuestaSelected" (ionChange)="onSelectEncuesta()" ngDefaultControl>
+                <ion-select-option [(value)]="encuesta._id" *ngFor="let encuesta of encuestas">
+                    {{encuesta.descripcion}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-card>
+
+    <div *ngIf="encuestaSelected">
+        <swiper #swiper [config]="config" [allowTouchMove]="false" (slideChange)="swiperSlideChanged($event)" *ngIf="preguntas.length > 0">
+            <ng-template swiperSlide *ngFor="let pregunta of preguntas; let i = index">
+                <ion-card>
+                    <ion-text color="primary">
+                        <h2>Pregunta #{{i + 1}} - {{pregunta.tipopregunta.nombre}}</h2>
+                    </ion-text>
+                    <ion-text>
+                        {{pregunta.pregunta}}
+                    </ion-text>
+                    <ion-text>{{pregunta._id}}</ion-text>
+                    <br><br><br>
+                    <!-- <ion-item-divider>
+                        ------
+                    </ion-item-divider> -->
+                    <ion-item *ngIf="pregunta.tipopregunta.nombre == 'Pregunta abierta'">
+                        <ion-label position="stacked">RESPUESTA</ion-label>
+                        <ion-textarea #textarea [(ngModel)]="respuestaAbiertaSelected" [value]="respuestaAbiertaSelected">
+                        </ion-textarea>
+                    </ion-item>
+                    <ion-radio-group *ngIf="pregunta.tipopregunta.nombre != 'Pregunta abierta' && pregunta.tipopregunta.nombre != 'Pregunta informativa'">
+                        <ion-label position="stacked">Seleccione una respuesta</ion-label>
+                        <ion-item value="default" *ngFor="let item of pregunta.opcionesrespuesta">
+                            <ion-label>{{item.respuesta.respuesta}}</ion-label>
+                            <ion-radio [value]="item.respuesta._id" (click)="seleccionarRespuesta(item.respuesta, pregunta)"></ion-radio>
+                        </ion-item>
+                    </ion-radio-group>
+                    <br><br><br>
+                </ion-card>
+            </ng-template>
+        </swiper>
+        <ion-card *ngIf="preguntas.length == 0">
+            <ion-text>
+                <h2>La encuesta seleccionada no tiene ninguna pregunta para responder</h2>
+            </ion-text>
+        </ion-card>
+    </div>
+</ion-content>
+
+<!-- <ion-button expand="full" (click)="print()">
+    prueba
+</ion-button> -->
+<ion-footer *ngIf="encuestaSelected && preguntas.length > 0">
+    <ion-row>
+        <ion-col size="6">
+            <ion-button expand="full" (click)="prev()" [disabled]="!preguntas[index - 1]">
+                <ion-icon name="arrow-back-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button expand="full" (click)="next()">
+                <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

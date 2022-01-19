@@ -1,0 +1,46 @@
+<ion-content>
+    <ion-grid>
+        <ion-row justify-content-center>
+
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                <div>
+                    <a><img class="img_login" src="../../assets/login/image.png"></a>
+                    <br><br><br><br><br><br>
+                    <ion-label class="labels-login">CORREO ELECTRÓNICO:</ion-label>
+                    <ion-item class="labels-login">
+                        <ion-input class="input" [(ngModel)]="user.email" type="text" placeholder="Correo Electrónico" required></ion-input>
+                    </ion-item>
+                    <br><br>
+                    <ion-label class="labels-login">CONTRASEÑA:</ion-label>
+                    <ion-item class="labels-login">
+                        <ion-input class="input" [(ngModel)]="user.pass" *ngIf="isHiddenPass" type="password" placeholder="Contraseña">
+                        </ion-input>
+                        <ion-input class="input" [(ngModel)]="user.pass" *ngIf="!isHiddenPass" type="text" placeholder="Contraseña">
+                        </ion-input>
+                        <ion-button class="button-green" (click)="changeHidden()" *ngIf="isHiddenPass">
+                            <ion-icon name="eye" style="zoom:1.8;"></ion-icon>
+                        </ion-button>
+                        <ion-button class="button-green" (click)="changeHidden()" *ngIf="!isHiddenPass">
+                            <ion-icon name="eye-off" style="zoom:1.8"></ion-icon>
+                        </ion-button>
+                    </ion-item>
+
+                </div>
+                <br><br><br>
+
+                <ion-button class="button-green" expand="full" size="medium" (click)="submit()" style="font-size: 20px;">INICIAR SESIÓN
+                </ion-button>
+
+                <br><br>
+
+
+                <ion-text class="labels">
+                    <h6>
+                        <ion-icon style="font-size: 0.75rem; color: gray;" name="mail-outline"></ion-icon><a style="font-size: 0.75rem; color: gray;">amauricion2012@gmail.com</a><br>
+                    </h6><br>
+                </ion-text>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

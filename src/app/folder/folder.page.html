@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{ folder }}</ion-title>
+        <ion-buttons slot="end" *ngIf="encuestaSelected">
+            <ion-button (click)="cerrarEncuesta()">
+                <ion-icon style="zoom:1.8;" name="close-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <br><br>
+    <ion-card>
+        <ion-title color="primary">EMPRESAS</ion-title>
+        <br>
+        <ion-text style="padding-left: 20px;">Cantidad:
+        </ion-text>
+        <ion-text color="primary" style="font-size: 20px; padding-left: 20px;">{{empresas}}
+        </ion-text>
+    </ion-card>
+    <br>
+    <ion-card>
+        <ion-title color="primary">CAMPAÑAS</ion-title>
+        <br>
+        <ion-text style="padding-left: 20px;">Cantidad:
+        </ion-text>
+        <ion-text color="primary" style="font-size: 20px; padding-left: 20px;">{{campanas}}
+        </ion-text>
+    </ion-card>
+    <br>
+    <ion-card>
+        <ion-title color="primary">ENCUESTADORES</ion-title>
+        <br>
+        <ion-text style="padding-left: 20px;">Cantidad:
+        </ion-text>
+        <ion-text color="primary" style="font-size: 20px; padding-left: 20px;">{{encuestadores}}
+        </ion-text>
+    </ion-card>
+</ion-content>

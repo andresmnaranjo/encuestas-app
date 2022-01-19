@@ -1,0 +1,61 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" type="overlay">
+            <ion-content>
+                <ion-list id="inbox-list" *ngIf="is_logged">
+                    <ion-list-header>{{name}} {{lastname}}</ion-list-header>
+                    <ion-note>{{email}}</ion-note>
+
+                    <!-- <ion-item lines="full">
+                        <ion-icon *ngIf="darkMode" slot="start" name="moon"></ion-icon>
+                        <ion-icon *ngIf="!darkMode" slot="start" name="sunny"></ion-icon>
+                        <ion-label>
+                            DARK THEME
+                        </ion-label>
+                        <ion-toggle slot="end" (ionChange)="change()"></ion-toggle>
+
+                    </ion-item> -->
+
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                        <ion-item style="background-color: #ecff9e;" (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+                            <ion-icon style="color: black;" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                            <ion-label style="color: black;">{{ p.title }}</ion-label>
+                        </ion-item>
+
+                    </ion-menu-toggle>
+
+                    <ion-item *ngIf="is_logged" (click)="alertLogout('Cerrar Sesión', '¿Estás seguro que quieres cerrar sesión?')" style="margin-top: 40px;">
+                        <ion-label style="color: red;">
+                            CERRAR SESIÓN
+                        </ion-label>
+                        <ion-icon slot="start" style="zoom: 1.2;" name="log-in-outline" style="color: red;"></ion-icon>
+                    </ion-item>
+
+                </ion-list>
+
+
+
+                <ion-item *ngIf="!is_logged"><img style="
+                 display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+                margin-bottom: 10%;
+                width: 80%;
+                    " class="img" src="../../assets/logout/Aviso_Log_out.png"></ion-item>
+
+                <div style="position: absolute;
+                left: 0;">
+                    <br>
+                    <ion-list-header><br><br><br> Contáctanos</ion-list-header>
+                    <ion-note>amauricion2012@gmail.com</ion-note>
+
+                    <a href="#" target="_blank"><img class="img_sidebar" src="../../assets/sidebar/image.png"></a>
+                    <!-- <a href="https://www.encuestas.com" target="_blank" *ngIf="is_logged"><img class="img" src="../../assets/sidebar/image.png"></a>
+                    <a href="https://www.encuestas.com" target="_blank" *ngIf="!is_logged"><img class="img" src="../../assets/sidebar/image.png"></a> -->
+                </div>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

@@ -1,0 +1,126 @@
+ion-content {
+    .error-message {
+        color: red;
+        font-size: 14px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .submit-btn {
+        margin: 48px 12px 12px;
+    }
+}
+
+ion-item {
+    font-size: 22px;
+}
+
+ion-menu-button {
+    color: var(--ion-color-primary);
+}
+
+#container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#container strong {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+}
+
+#container a {
+    text-decoration: none;
+}
+
+ion-grid {
+    width: 100%;
+    height: 100%;
+    // background-color: #666c78;
+    padding-top: 2em !important;
+}
+
+@font-face {
+    font-family: "deseg7";
+    src: url("../../assets/fonts/DSEG7Classic-Bold.woff") format("woff");
+}
+
+.display {
+    font-size: 2.8em;
+    text-align: right;
+    color: white;
+    font-family: "deseg7";
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.alert {}
+
+.alert-input {}
+
+.titleParameter {
+    color: red;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.textParameter {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.datatableIp {
+    padding-left: 8%;
+    font-size: 15px;
+}
+
+.datatableMonitor {
+    padding-left: 4%;
+    font-size: 15px;
+}
+
+accordion-list {
+    .wrapper {
+        transition: 0.2s linear;
+    }
+    .collapsed {
+        height: 0 !important;
+    }
+}
+
+.toggle_button {}
+
+div.accordion-container {
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: max-height 0.5s ease-in-out;
+    height: auto;
+    // background: rgb(31, 43, 55);
+}
+
+div.accordion-container.collapsed {
+    max-height: 0 !important;
+}
+
+.imgPayment {
+    width: 100%;
+}
+
+.text-payment {
+    font-size: 20px;
+    text-align: center;
+    color: YELLOW;
+    text-decoration: underline;
+    font-weight: bold;
+    // font-family: "underline","algerian";
+}
